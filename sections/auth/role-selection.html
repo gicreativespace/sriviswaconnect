@@ -1,0 +1,40 @@
+<div class="role-container">
+    <!-- Dark Mode Toggle (Top Right) -->
+    <div class="top-bar">
+        <button class="icon-btn" onclick="toggleDarkMode()">
+            <i id="dark-mode-toggle-icon" class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="role-header">
+        <img src="assets/images/logo.png" alt="Sri Viswa Logo" class="role-logo">
+        <h1>Welcome to<br><span>Sri Viswa Connect</span></h1>
+        <p>Please select your portal to continue</p>
+    </div>
+    
+    <div class="cards-container">
+        <!-- School Portal Card -->
+        <div class="role-card" onclick="selectPortal('school')">
+            <div class="icon-box blue-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="text-box">
+                <h3>School Portal</h3>
+                <p>Staff, Teachers & Principal</p>
+            </div>
+            <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <!-- Parent Portal Card -->
+        <div class="role-card" onclick="selectPortal('parent')">
+            <div class="icon-box green-icon">
+                <i class="fa-solid fa-people-roof"></i>
+            </div>
+            <div class="text-box">
+                <h3>Parent Portal</h3>
+                <p>Track your child's progress</p>
+            </div>
+            <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+    </div>
+</div>
