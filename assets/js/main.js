@@ -24,6 +24,12 @@ async function loadSection(sectionName, folder = 'auth') {
         sectionWrapper.innerHTML = html;
         container.appendChild(sectionWrapper);
 
+        // Load section-specific CSS
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = `/sections/${folder}/${sectionName}.css`;
+        document.head.appendChild(cssLink);
+
         // Load section-specific JS
         const script = document.createElement('script');
         script.src = `/sections/${folder}/${sectionName}.js`;
@@ -35,6 +41,7 @@ async function loadSection(sectionName, folder = 'auth') {
         console.error("Error loading section:", error);
     }
 }
+window.loadSection = loadSection;
 
 // --- Startup Logic ---
 window.addEventListener('DOMContentLoaded', () => {
@@ -46,13 +53,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // --- Footer Logic (Single Click vs Long Press) ---
 let pressTimer;
+let isLongPress = false;
 
 const footerText = document.getElementById('gi-footer-text');
 
 const startPress = (e) => {
     e.preventDefault();
+    isLongPress = false;
     pressTimer = setTimeout(() => {
         // Long Press (3 seconds) -> Open GI Admin Login
+        isLongPress = true;
         alert("GI Super Admin Login (Phase 3)");
         // Future: loadSection('gi-login', 'auth');
         pressTimer = null;
@@ -63,15 +73,19 @@ const cancelPress = () => {
     if (pressTimer) {
         clearTimeout(pressTimer);
         pressTimer = null;
-        // Single Click -> Open Popup
-        document.getElementById('gi-popup').classList.add('active');
+        if (!isLongPress) {
+            // Single Click -> Open Popup
+            document.getElementById('gi-popup').classList.add('active');
+        }
     }
 };
 
 // Mouse Events (Desktop)
 footerText.addEventListener('mousedown', startPress);
 footerText.addEventListener('mouseup', cancelPress);
-footerText.addEventListener('mouseleave', () => { if(pressTimer) clearTimeout(pressTimer); });
+footerText.addEventListener('mouseleave', () => { 
+    if(pressTimer) clearTimeout(pressTimer); 
+});
 
 // Touch Events (Mobile)
 footerText.addEventListener('touchstart', startPress, {passive: false});
@@ -103,5 +117,43 @@ window.toggleDarkMode = function() {
 window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('sv_dark_mode') === 'true') {
         document.body.classList.add('dark-mode');
+        const icon = document.getElementById('dark-mode-toggle-icon');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
     }
+});
+
+// --- PWA Install Logic ---
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const banner = document.getElementById('install-banner');
+    if (banner) banner.classList.add('show');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const installBtn = document.getElementById('install-btn');
+    if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                deferredPrompt = null;
+                const banner = document.getElementById('install-banner');
+                if (banner) banner.classList.remove('show');
+            }
+        });
+    }
+});
+
+window.addEventListener('appinstalled', () => {
+    console.log('PWA was installed');
+    const banner = document.getElementById('install-banner');
+    if (banner) banner.classList.remove('show');
+    deferredPrompt = null;
 });
