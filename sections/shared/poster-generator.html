@@ -1,0 +1,29 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <h2>Poster Generator</h2>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn" onclick="loadSection('role-selection', 'auth')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dash-content">
+        <!-- Poster Preview -->
+        <div class="poster-preview-container">
+            <canvas id="posterCanvas" width="800" height="1000"></canvas>
+        </div>
+
+        <!-- Actions -->
+        <div class="poster-actions">
+            <button class="btn-primary" onclick="downloadPoster()">
+                <i class="fa-solid fa-download"></i> Download PNG
+            </button>
+            <button class="btn-secondary" onclick="shareToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
