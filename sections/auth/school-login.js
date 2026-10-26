@@ -1,3 +1,6 @@
+import { db } from '../../assets/js/firebase-config.js';
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 // --- Real Login Logic (Firestore) ---
 window.handleSchoolLogin = async function(event) {
     event.preventDefault();
@@ -6,10 +9,6 @@ window.handleSchoolLogin = async function(event) {
     const pin = document.getElementById('login-pin').value;
     
     try {
-        // Firebase డేటాబేస్ నుండి యూజర్ ని తెచ్చుకోవడం
-        const { db } = await import('../../assets/js/firebase-config.js');
-        const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
-        
         const userDocRef = doc(db, "users", phone);
         const userDoc = await getDoc(userDocRef);
 
@@ -20,7 +19,6 @@ window.handleSchoolLogin = async function(event) {
                 alert(`Welcome ${userData.name}!`);
                 localStorage.setItem('sv_user', JSON.stringify(userData));
                 
-                // Role బట్టి డాష్ బోర్డ్ కి పంపడం
                 if (userData.role === 'principal') {
                     window.loadSection('principal-dashboard', 'admin');
                 } else if (userData.role === 'incharge') {
