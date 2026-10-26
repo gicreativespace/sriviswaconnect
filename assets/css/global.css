@@ -161,3 +161,47 @@ footer {
 }
 .call-btn { background: rgba(15, 76, 129, 0.1); color: var(--primary-blue); }
 .wa-btn { background: rgba(63, 143, 41, 0.1); color: var(--accent-green); }
+/* --- PWA Install Banner --- */
+.install-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary-blue);
+    color: white;
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    animation: slideUpBanner 0.4s ease-out;
+}
+@keyframes slideUpBanner {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+.install-banner.show {
+    display: flex;
+}
+.install-text {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.install-btn {
+    background: white;
+    color: var(--primary-blue);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+}
+@media (display-mode: standalone) {
+    .install-banner { display: none !important; }
+}
