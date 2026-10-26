@@ -1,0 +1,21 @@
+<div class="auth-container">
+    <div class="auth-header">
+        <button class="back-btn" onclick="loadSection('role-selection', 'auth')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h2>School Portal Login</h2>
+        <p>Enter your phone number and PIN</p>
+    </div>
+    
+    <form id="school-login-form" onsubmit="handleSchoolLogin(event)">
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="login-phone" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="input-group">
+            <label>Master PIN</label>
+            <input type="password" id="login-pin" placeholder="Enter 6-digit PIN" required>
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+</div>
