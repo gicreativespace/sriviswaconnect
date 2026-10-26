@@ -5,29 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Viswa Connect</title>
     
-    <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#0F4C81">
-    <link rel="manifest" href="/manifest.json">
+    <!-- మార్పు: /manifest.json -> manifest.json -->
+    <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="assets/images/icon-192.png">
     
-    <!-- Global CSS & Fonts -->
     <link rel="stylesheet" href="assets/css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- 1. SPLASH SCREEN -->
     <div id="global-splash" class="splash-screen">
         <img src="assets/images/logo.png" alt="Sri Viswa Logo" class="splash-logo-img">
         <h2 class="splash-title">SRI VISWA CONNECT</h2>
         <div class="loader"></div>
     </div>
 
-    <!-- 2. MAIN APP CONTAINER -->
     <div id="app-container"></div>
 
-    <!-- 3. INSTALL APP BANNER -->
     <div id="install-banner" class="install-banner">
         <div class="install-text">
             <i class="fa-solid fa-download"></i> Install Sri Viswa App
@@ -35,12 +31,10 @@
         <button id="install-btn" class="install-btn">Install</button>
     </div>
 
-    <!-- 4. GLOBAL FOOTER -->
     <footer id="global-footer">
         <p>© <span id="gi-footer-text" class="gi-text">@GI Creative Space</span></p>
     </footer>
 
-    <!-- 5. GI POPUP MODAL -->
     <div id="gi-popup" class="popup-overlay">
         <div class="popup-card">
             <div class="popup-header">
@@ -59,14 +53,13 @@
         </div>
     </div>
 
-    <!-- Main JS -->
     <script type="module" src="assets/js/main.js"></script>
     
-    <!-- SERVICE WORKER REGISTRATION (Correct Position) -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                // మార్పు: /sw.js -> sw.js
+                navigator.serviceWorker.register('sw.js')
                     .then(reg => console.log('Service Worker Registered!', reg))
                     .catch(err => console.log('Service Worker Error:', err));
             });
