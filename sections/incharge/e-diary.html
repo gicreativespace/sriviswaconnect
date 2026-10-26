@@ -1,0 +1,41 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <h2>Write E-Diary</h2>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" onclick="toggleDarkMode()">
+                <i id="dark-mode-toggle-icon" class="fa-solid fa-moon"></i>
+            </button>
+            <button class="logout-btn" onclick="loadSection('role-selection', 'auth')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dash-content">
+        <!-- Class Selector -->
+        <div class="page-top-bar">
+            <select id="diary-class-select" class="class-select" onchange="loadSubjects()">
+                <option value="Class IX">Class IX</option>
+                <option value="Class VIII">Class VIII</option>
+            </select>
+            <span class="date-badge" id="diary-date">26 Oct 2023</span>
+        </div>
+
+        <!-- Subjects Container (Loaded Dynamically) -->
+        <div id="subjects-container" class="subjects-list">
+            <p class="loading-text">Loading subjects...</p>
+        </div>
+
+        <!-- Add Manual Subject -->
+        <button class="add-manual-btn" onclick="addManualSubject()">
+            <i class="fa-solid fa-plus"></i> Add Manual Subject
+        </button>
+
+        <!-- Submit Button -->
+        <div class="sticky-bottom">
+            <button class="btn-primary" onclick="submitEDiary()">Send for Principal Approval</button>
+        </div>
+    </div>
+</div>
