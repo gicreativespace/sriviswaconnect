@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Viswa Connect</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0F4C81">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Global CSS & Fonts -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. SPLASH SCREEN -->
+    <div id="global-splash" class="splash-screen">
+        <img src="assets/images/logo.png" alt="Sri Viswa Logo" class="splash-logo-img">
+        <h2 class="splash-title">SRI VISWA CONNECT</h2>
+        <div class="loader"></div>
+    </div>
+
+    <!-- 2. MAIN APP CONTAINER (సెక్షన్స్ ఇక్కడ లోడ్ అవుతాయి) -->
+    <div id="app-container"></div>
+
+    <!-- 3. GLOBAL FOOTER (Long Press for Admin) -->
+    <footer id="global-footer">
+        <p>© <span id="gi-footer-text" class="gi-text">@GI Creative Space</span></p>
+    </footer>
+
+    <!-- 4. GI POPUP MODAL (Single Click) -->
+    <div id="gi-popup" class="popup-overlay">
+        <div class="popup-card">
+            <div class="popup-header">
+                <h3>GI Creative Space</h3>
+                <button class="close-btn" onclick="closeGiPopup()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p>For your digital needs, contact us!</p>
+            <div class="contact-actions">
+                <a href="tel:8985361991" class="action-btn call-btn">
+                    <i class="fa-solid fa-phone"></i> Call Us
+                </a>
+                <!-- Official WhatsApp Logo -->
+                <a href="https://wa.me/918985361991" target="_blank" class="action-btn wa-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
