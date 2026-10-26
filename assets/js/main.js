@@ -15,7 +15,8 @@ async function loadSection(sectionName, folder = 'auth') {
     }
 
     try {
-        const response = await fetch(`/sections/${folder}/${sectionName}.html`);
+        // మార్పు: మొదటి / తీసేయడం
+        const response = await fetch(`sections/${folder}/${sectionName}.html`);
         const html = await response.text();
         
         const sectionWrapper = document.createElement('div');
@@ -24,15 +25,15 @@ async function loadSection(sectionName, folder = 'auth') {
         sectionWrapper.innerHTML = html;
         container.appendChild(sectionWrapper);
 
-        // Load section-specific CSS
+        // CSS పాత్ సరిచేయడం
         const cssLink = document.createElement('link');
         cssLink.rel = 'stylesheet';
-        cssLink.href = `/sections/${folder}/${sectionName}.css`;
+        cssLink.href = `sections/${folder}/${sectionName}.css`;
         document.head.appendChild(cssLink);
 
-        // Load section-specific JS
+        // JS పాత్ సరిచేయడం
         const script = document.createElement('script');
-        script.src = `/sections/${folder}/${sectionName}.js`;
+        script.src = `sections/${folder}/${sectionName}.js`;
         script.type = 'module';
         document.body.appendChild(script);
 
@@ -51,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 1500);
 });
 
-// --- Footer Logic (Single Click vs Long Press) ---
+// --- Footer Logic ---
 let pressTimer;
 let isLongPress = false;
 
@@ -61,10 +62,8 @@ const startPress = (e) => {
     e.preventDefault();
     isLongPress = false;
     pressTimer = setTimeout(() => {
-        // Long Press (3 seconds) -> Open GI Admin Login
         isLongPress = true;
         alert("GI Super Admin Login (Phase 3)");
-        // Future: loadSection('gi-login', 'auth');
         pressTimer = null;
     }, 3000);
 };
@@ -74,20 +73,16 @@ const cancelPress = () => {
         clearTimeout(pressTimer);
         pressTimer = null;
         if (!isLongPress) {
-            // Single Click -> Open Popup
             document.getElementById('gi-popup').classList.add('active');
         }
     }
 };
 
-// Mouse Events (Desktop)
 footerText.addEventListener('mousedown', startPress);
 footerText.addEventListener('mouseup', cancelPress);
 footerText.addEventListener('mouseleave', () => { 
     if(pressTimer) clearTimeout(pressTimer); 
 });
-
-// Touch Events (Mobile)
 footerText.addEventListener('touchstart', startPress, {passive: false});
 footerText.addEventListener('touchend', cancelPress);
 
@@ -113,7 +108,6 @@ window.toggleDarkMode = function() {
     }
 };
 
-// Apply saved dark mode on load
 window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('sv_dark_mode') === 'true') {
         document.body.classList.add('dark-mode');
@@ -142,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                console.log(`User response to the install prompt: ${outcome}`);
+                console.log(`User response: ${outcome}`);
                 deferredPrompt = null;
                 const banner = document.getElementById('install-banner');
                 if (banner) banner.classList.remove('show');
