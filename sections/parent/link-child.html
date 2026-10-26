@@ -1,0 +1,51 @@
+<div class="auth-container">
+    <div class="auth-header">
+        <button class="back-btn" onclick="loadSection('role-selection', 'auth')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h2>Link Your Child</h2>
+        <p>Enter your child's details to link</p>
+    </div>
+
+    <form id="link-child-form" onsubmit="handleLinkChild(event)">
+        <div class="input-group">
+            <label>Relation</label>
+            <select id="child-relation" required>
+                <option value="Father">Father</option>
+                <option value="Mother">Mother</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Parent Name</label>
+            <input type="text" id="parent-name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Select Child's Class</label>
+            <select id="child-class" required>
+                <option value="Class I">Class I</option>
+                <option value="Class II">Class II</option>
+                <option value="Class III">Class III</option>
+                <option value="Class IV">Class IV</option>
+                <option value="Class V">Class V</option>
+                <option value="Class VI">Class VI</option>
+                <option value="Class VII">Class VII</option>
+                <option value="Class VIII">Class VIII</option>
+                <option value="Class IX">Class IX</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Roll Number</label>
+            <input type="number" id="child-roll" placeholder="Enter roll number" required>
+        </div>
+
+        <div class="input-group">
+            <label>Child's Date of Birth</label>
+            <input type="date" id="child-dob" required>
+        </div>
+
+        <button type="submit" class="btn-primary">Link Child & Enter</button>
+    </form>
+</div>
