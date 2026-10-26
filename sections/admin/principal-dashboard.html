@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <h2>Principal Dashboard</h2>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" onclick="toggleDarkMode()">
+                <i id="dark-mode-toggle-icon" class="fa-solid fa-moon"></i>
+            </button>
+            <button class="logout-btn" onclick="loadSection('role-selection', 'auth')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dash-content" id="principal-data-container">
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card blue-bg">
+                <h4>Total Staff</h4>
+                <p>12</p>
+            </div>
+            <div class="stat-card green-bg">
+                <h4>Pending Approvals</h4>
+                <p id="pending-count">0</p>
+            </div>
+        </div>
+
+        <!-- Approvals List -->
+        <h3 class="section-title">Pending Approvals (E-Diary & Notices)</h3>
+        <div id="approvals-list">
+            <p class="loading-text">Loading from Firestore...</p>
+        </div>
+    </div>
+</div>
