@@ -1,0 +1,144 @@
+.dashboard-container {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.header-left h2 {
+    font-size: 20px;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.icon-btn {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 16px;
+}
+.logout-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #ef4444;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Child Switcher */
+.child-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.active-child {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 16px;
+}
+.add-child-btn {
+    background: transparent;
+    border: 1px dashed var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: var(--primary-blue);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Stats Cards */
+.stat-card {
+    padding: 16px;
+    border-radius: 16px;
+    color: var(--text-dark);
+}
+.blue-bg {
+    background: rgba(15, 76, 129, 0.08);
+    border: 1px solid rgba(15, 76, 129, 0.2);
+}
+.stat-card h4 {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Diary & Notice Cards */
+.diary-card, .notice-card {
+    background: var(--white);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.diary-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.class-badge {
+    background: rgba(15, 76, 129, 0.1);
+    color: var(--primary-blue);
+}
+.time {
+    font-size: 11px;
+    color: var(--text-light);
+}
+.diary-card p, .notice-card p {
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+.loading-text {
+    color: var(--text-light);
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
