@@ -46,3 +46,13 @@ window.handleLinkChild = async function(event) {
         alert("Something went wrong. Check console.");
     }
 };
+        // Save linked child to localStorage
+        localStorage.setItem('sv_linked_child', JSON.stringify({
+            name: "Student_" + rollNumber,
+            className: childClass,
+            rollNo: parseInt(rollNumber),
+            dob: dob
+        }));
+
+        alert("Child Linked Successfully!");
+        window.loadSection('parent-dashboard', 'parent');
