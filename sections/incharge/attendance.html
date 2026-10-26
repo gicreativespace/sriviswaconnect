@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <h2>Mark Attendance</h2>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" onclick="toggleDarkMode()">
+                <i id="dark-mode-toggle-icon" class="fa-solid fa-moon"></i>
+            </button>
+            <button class="logout-btn" onclick="loadSection('role-selection', 'auth')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dash-content">
+        <!-- Class Selector & Date -->
+        <div class="page-top-bar">
+            <select id="attendance-class-select" class="class-select">
+                <option value="Class IX">Class IX</option>
+                <option value="Class VIII">Class VIII</option>
+            </select>
+            <span class="date-badge" id="today-date">26 Oct 2023</span>
+        </div>
+
+        <!-- Student List -->
+        <div id="student-attendance-list" class="attendance-list">
+            <p class="loading-text">Loading students...</p>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="sticky-bottom">
+            <button class="btn-primary" onclick="submitAttendance()">Submit Attendance</button>
+        </div>
+    </div>
+</div>
