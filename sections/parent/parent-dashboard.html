@@ -1,0 +1,43 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <h2>Parent Dashboard</h2>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" onclick="toggleDarkMode()">
+                <i id="dark-mode-toggle-icon" class="fa-solid fa-moon"></i>
+            </button>
+            <button class="logout-btn" onclick="loadSection('role-selection', 'auth')">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dash-content" id="parent-data-container">
+        <!-- Child Switcher -->
+        <div class="child-switcher">
+            <span class="active-child" id="active-child-name">Loading...</span>
+            <button class="add-child-btn" onclick="loadSection('link-child', 'parent')">
+                <i class="fa-solid fa-plus"></i> Add Child
+            </button>
+        </div>
+
+        <!-- Attendance Card -->
+        <div class="stat-card blue-bg" style="margin-bottom: 20px;">
+            <h4>Today's Attendance</h4>
+            <p id="parent-attendance-status" style="font-size: 20px; font-weight: bold; color: #3F8F29;">Loading...</p>
+        </div>
+
+        <!-- E-Diary Section -->
+        <h3 class="section-title">Today's E-Diary</h3>
+        <div id="parent-diary-list">
+            <p class="loading-text">Loading diary...</p>
+        </div>
+
+        <!-- Notice Board -->
+        <h3 class="section-title">Notice Board</h3>
+        <div id="parent-notice-list">
+            <p class="loading-text">Loading notices...</p>
+        </div>
+    </div>
+</div>
